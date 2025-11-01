@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hockey Game Play Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+   <div class="navbar">
+        <h1>A Rama Krishna Sanath's Project</h1>
+        <h2>Play Prediction</h2>
+    </div>
+
+    <div class="app-main">
+        <form action="{{ url_for('predict_datapoint') }}" method="POST">
+            <!-- Outlook -->
+            <label for="Outlook">Outlook:</label>
+            <select name="Outlook" id="Outlook" required>
+                <option value="0">Sunny</option>
+                <option value="1">Overcast</option>
+                <option value="2">Rain</option>
+            </select>
+
+            <!-- Temperature -->
+            <label for="Temperature">Temperature:</label>
+            <select name="Temperature" id="Temperature" required>
+                <option value="0">Hot</option>
+                <option value="1">Mild</option>
+                <option value="2">Cool</option>
+            </select>
+
+            <!-- Humidity -->
+            <label for="Humidity">Humidity:</label>
+            <select name="Humidity" id="Humidity" required>
+                <option value="0">High</option>
+                <option value="1">Normal</option>
+            </select>
+
+            <!-- Windy -->
+            <label for="Windy">Windy:</label>
+            <select name="Windy" id="Windy" required>
+                <option value="0">False</option>
+                <option value="1">True</option>
+            </select>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+
+    <h2>Your Play Prediction is: {{ results }}</h2>
+
+    <footer>
+        A Rama Krishna Sanath's Project
+    </footer>
+</body>
+</html>
